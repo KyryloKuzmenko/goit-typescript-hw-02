@@ -1,0 +1,16 @@
+.imageGallery {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.imageGallery li {
+  margin: 5px;
+}
+
+.imageGallery img {
+  width: 360px;
+  height: 240px;
+
+}

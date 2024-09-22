@@ -1,0 +1,20 @@
+.loadMoreBtn {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 0.5em 1.4em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: rgb(238, 238, 238);
+  display: block;
+  margin: 20px auto 40px;
+  transition: color 0.4s ease, background-color 0.4s ease, border 0.4s ease;
+}
+
+.loadMoreBtn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(70, 70, 70);
+  border: 1px solid;
+}
