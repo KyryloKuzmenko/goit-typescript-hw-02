@@ -1,11 +1,6 @@
 import React from "react";
+import { Image } from "../../types";
 
-interface Image {
-  urls: {
-    small: string;
-    description: string; // Убедитесь, что это корректное поле
-  };
-}
 
 interface ImageCardProps {
   image: Image;
@@ -14,7 +9,7 @@ interface ImageCardProps {
 const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
   return (
     <div>
-      <img src={image.urls.small} alt={image.urls.description} />
+      <img src={image.urls.small} alt={image.alt_description} />
     </div>
   );
 };

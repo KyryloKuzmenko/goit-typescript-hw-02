@@ -1,14 +1,15 @@
 import React from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import styles from "./ImageGallery.module.css";
+import { Image } from "../../types";
 
-interface Image {
-  id: string; // или number, в зависимости от типа id
-  urls: {
-    regular: string;
-  };
-  alt_description: string;
-}
+// interface Image {
+//   id: string; // или number, в зависимости от типа id
+//   urls: {
+//     regular: string;
+//   };
+//   alt_description: string;
+// }
 
 interface ImageGalleryProps {
   images: Image[];
