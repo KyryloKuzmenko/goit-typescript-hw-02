@@ -12,7 +12,7 @@ interface Image {
 
 interface ImageGalleryProps {
   images: Image[];
-  openModal: (url: string, alt: string) => void;
+  openModal: (image: Image) => void;
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
@@ -21,7 +21,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
       {images.map((image) => (
         <li
           key={image.id}
-          onClick={() => openModal(image.urls.regular, image.alt_description)}
+          onClick={() => openModal(image)}
         >
           <ImageCard image={image} />
         </li>

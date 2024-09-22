@@ -38,6 +38,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
   onRequestClose,
   image,
 }) => {
+  if (!image) return null; // Или можно отобразить заглушку
   return (
     <Modal
       isOpen={isOpen}

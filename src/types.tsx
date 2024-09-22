@@ -6,3 +6,9 @@ export interface Image {
   };
   alt_description?: string;
 }
+
+export interface ResponseData {
+  results: Image[];
+  total: number;
+  total_pages: number;
+}

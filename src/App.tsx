@@ -1,6 +1,4 @@
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Loader from "./components/Loader/Loader";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
@@ -10,14 +8,9 @@ import { Toaster } from "react-hot-toast";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import NoResultsMessage from "./components/NoResultsMessage/NoResultsMessage";
+import { Image, ResponseData } from "./types";
 
-interface Image {
-  id: string;
-  url: string;
-  alt: string;
-}
-
-function App() {
+const App = () => {
   const [query, setQuery] = useState<string>("");
   const [images, setImages] = useState<Image[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -29,15 +22,11 @@ function App() {
   const [searchWithoutResults, setSearchWithoutResults] =
     useState<boolean>(false);
 
-  const fetchImages = async (
-    searchQuery: string,
-    page: number = 1
-  ): Promise<void> => {
+  const fetchImages = async (searchQuery: string, page: number = 1) => {
     setIsLoading(true);
     setErrorMessage(false);
     setSearchWithoutResults(false);
     setShowLoadMore(false);
-
     try {
       const data: Image[] = await requestImages(searchQuery, page);
       if (data.length > 0) {
@@ -56,24 +45,24 @@ function App() {
     }
   };
 
-  const openModal = (image: Image): void => {
+  const openModal = (image: Image) => {
     setSelectedImage(image);
     setIsOpen(true);
   };
 
-  const closeModal = (): void => {
+  const closeModal = () => {
     setIsOpen(false);
     setSelectedImage(null);
   };
 
-  const onSearch = (searchQuery: string): void => {
+  const onSearch = (searchQuery: string) => {
     setQuery(searchQuery);
     setImages([]);
     setPage(1);
     fetchImages(searchQuery, 1);
   };
 
-  const loadMore = (): void => {
+  const loadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchImages(query, nextPage);
@@ -104,6 +93,6 @@ function App() {
       <Toaster />
     </>
   );
-}
+};
 
 export default App;
