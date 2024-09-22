@@ -1,27 +1,27 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import style from "./SearchBar.module.css";
-import toast from "react-hot-toast";
+import toast, {ToastPosition} from "react-hot-toast";
 
-// Типизация пропсов
+
 interface SearchBarProps {
   onSubmit: (query: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  const [query, setQuery] = useState<string>(""); // Типизация состояния
+  const [query, setQuery] = useState<string>(""); 
 
-  // Обработчик изменения в input
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
 
-  // Обработчик формы
+ 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (query.trim() === "") {
       toast.error("Can't be empty", {
         duration: 3000,
-        position: "top",
+        position: "top" as ToastPosition,
       });
       return;
     }
